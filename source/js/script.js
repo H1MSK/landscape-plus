@@ -152,6 +152,11 @@
     $('.fancybox').fancybox();
   }
 
+  // Widget click-expand
+  $('.widget-title').on('click',function(){
+    $(this).parent().toggleClass('widget-hidden');
+  });
+
   // Mobile nav
   var $container = $('#container'),
     isMobileNavAnim = false,

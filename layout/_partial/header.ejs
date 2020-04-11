@@ -7,8 +7,22 @@
       </h1>
       <% if (theme.subtitle){ %>
         <h2 id="subtitle-wrap">
-          <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle %></a>
+          <a href="<%- url_for() %>" id="subtitle"></a>
         </h2>
+        <!-- Random subtitle -->
+        <script>
+          (function () {
+            var subtitles = [
+              <% for(var i = 0, s = theme.subtitle.split("\n");
+                i + 1 < s.length; ++i) {
+                  /* ignore the last element which is a null string */ %>
+              "<%= s[i] %>",
+              <% } %>
+            ];
+            document.getElementById("subtitle").innerText =
+              subtitles[Math.floor(Math.random() * subtitles.length)];
+          })();
+        </script>
       <% } %>
     </div>
     <div id="header-inner" class="inner">
