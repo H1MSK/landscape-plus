@@ -351,8 +351,17 @@ $article-share-link
     background: color-google
     text-shadow: 0 1px darken(color-google, 20%)
 
+.article-gallery-at-index
+  float: right
+  max-height: 200px
+  overflow: hidden
+  @media screen and (min-width: 600px)
+    width: 300px
+  @media screen and (max-width: 599px)
+    width: 100%
+
 .article-gallery
-  background: #000
+  background: rgba(0,0,0,0)
   position: relative
 
 .article-gallery-photos
