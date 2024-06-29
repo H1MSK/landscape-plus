@@ -53,4 +53,24 @@
       <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
   </section>
+<% } else if (!index && (config.waline || theme.waline)) { %>
+  <div id="comments"></div>
+    <script>
+        Waline.init({
+          el: '#comments',
+          <% if (config.waline) { %>
+          serverURL: '<%= config.waline.serverURL %>',
+          avatarCDN: '<%= config.waline.avatarCDN %>',
+          <% } else { %>
+          serverURL: '<%= theme.waline.serverURL %>',
+          <% } %>
+          emoji: [
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo',
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus',
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba'
+          ]
+        });
+    </script>
 <% } %>
