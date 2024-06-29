@@ -5,30 +5,28 @@
       <h1 id="logo-wrap">
         <a href="<%- url_for() %>" id="logo"><%= config.title %></a>
       </h1>
-      <% if (theme.subtitle){ %>
-        <h2 id="subtitle-wrap">
-          <a href="<%- url_for() %>" id="subtitle"></a>
-        </h2>
-        <!-- typed.js provides animation -->
-        <script src="/js/typed.js"></script>
-        <!-- Random subtitle -->
-        <script>
-          (function () {
-          var typed = new Typed("#subtitle", {
-            typeSpeed: 40,
-            backSpeed: 10,
-            backDelay: 2000,
-            startDelay: 500,
-            shuffle: true,
-            loop: true,
-            strings: [
-              <% for(var i = 0, s = theme.subtitle.split("\n");
-                i < s.length; ++i) {
-                  /* ignore the last element which is a null string */ %>
-              "<%= s[i] %>",<% } %>]});
-          })();
-        </script>
-      <% } %>
+      <h2 id="subtitle-wrap">
+        <a href="<%- url_for() %>" id="subtitle"></a>
+      </h2>
+      <!-- typed.js provides animation -->
+      <script src="/js/typed.js"></script>
+      <!-- Random subtitle -->
+      <script>
+        (function () {
+        var typed = new Typed("#subtitle", {
+          typeSpeed: 40,
+          backSpeed: 10,
+          backDelay: 10000,
+          startDelay: 500,
+          shuffle: true,
+          loop: true,
+          strings: [
+            <% for(var i = 0, s = config.subtitle.split("\n"); i < s.length; ++i) { /* ignore the last element which is a null string */ %>
+            "<%= s[i] %>",
+            <% } %>
+          ]});
+        })();
+      </script>
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
